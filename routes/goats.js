@@ -1,10 +1,5 @@
 const express = require("express");
-
-const app = express();
-
-app.get('/', (req, res) => {
-    res.send('Hello World');
-})
+const router = express.Router();
 
 const goats = [
     {
@@ -19,13 +14,13 @@ const goats = [
         "id": 3,
         "name":"clyde"
     },
-    ];
+];
 
-app.get('/test', (req, res) => {
+router.get('/t', (req, res) => {
     res.json(goats);
 })
 
-app.get('/test/:id', (req, res) => {
+router.get('/:id', (req, res) => {
     console.log(req.params.id);
     let selectedGoat = null;
     goats.forEach((goat) => {
@@ -36,6 +31,7 @@ app.get('/test/:id', (req, res) => {
     res.json(selectedGoat);
 });
 
-console.log("... SERVER IS RUNNING ...");
-
-app.listen(3000);
+router.delete('/:id', (req, res) => {
+    console.log("Delete the goat with id: " + req.params.id)
+    
+})
