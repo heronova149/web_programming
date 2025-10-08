@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "nomdeon index.js"
+    "start": "nodemon index.js"
   },
   "dependencies": {
     "express": "^5.1.0"
