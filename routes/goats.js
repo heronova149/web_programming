@@ -16,7 +16,7 @@ const goats = [
     },
 ];
 
-router.get('/t', (req, res) => {
+router.get('/', (req, res) => {
     res.json(goats);
 })
 
@@ -32,6 +32,9 @@ router.get('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-    console.log("Delete the goat with id: " + req.params.id)
-    
-})
+    const id = Number(req.params.id);
+    goats = goats.filter(goat => goat.id !== id);
+    res.json({ message: `Deleted goat with id ${id}` });
+});
+
+module.exports = router;

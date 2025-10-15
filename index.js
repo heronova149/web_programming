@@ -1,41 +1,19 @@
 const express = require("express");
-
 const app = express();
 
-app.get('/', (req, res) => {
-    res.send('Hello World');
-})
+// All the routes
+const songsRouter = require('./routes/songs');
+const artistsRouter = require('./routes/artists');
+const goatsRouter = require('./routes/goats');
+const rankingsRouter = require('./routes/rankings');
+const votingRouter = require('./routes/voting');
 
-const goats = [
-    {
-        "id": 1,
-        "name":"t-rex"
-    },
-    {
-        "id": 2,
-        "name":"connie"
-    },
-    {
-        "id": 3,
-        "name":"clyde"
-    },
-    ];
-
-app.get('/test', (req, res) => {
-    res.json(goats);
-})
-
-app.get('/test/:id', (req, res) => {
-    console.log(req.params.id);
-    let selectedGoat = null;
-    goats.forEach((goat) => {
-        if(goat.id == req.params.id) {
-            selectedGoat = goat;
-        }
-    });
-    res.json(selectedGoat);
-});
+// Use routes
+app.use('/songs', songsRouter);
+app.use('/artists', artistsRouter);
+app.use('/goats', goatsRouter);
+app.use('/ranking', rankingsRouter);
+app.use('/voting', votingRouter);
 
 console.log("... SERVER IS RUNNING ...");
-
 app.listen(3000);
