@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Proposals - Web Programming</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #4facfe);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .page-container {
+            width: 210mm;
+            background: white;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        header h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+
+        nav {
+            background: #f8f9fa;
+            padding: 1rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        nav button {
+            padding: 0.75rem 1.5rem;
+            background: white;
+            border: 2px solid #667eea;
+            color: #667eea;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        nav button:hover { background: #667eea; color: white; }
+        nav button.active { background: #667eea; color: white; }
+
+        .content { padding: 2rem; min-height: 297mm; }
+
+        .view { display: none; animation: fadeIn 0.5s; }
+        .view.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #667eea;
+        }
+
+        h3 { color: #495057; font-size: 1.3rem; margin: 1.5rem 0 0.75rem; }
+        h4 { color: #667eea; margin-bottom: 0.5rem; }
+
+        p, li { line-height: 1.6; color: #495057; margin-bottom: 0.5rem; }
+        ul { margin-left: 1.5rem; }
+
+        .one-liner { font-style: italic; color: #6c757d; font-size: 1.1rem; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .card ul { margin-left: 1rem; font-size: 0.9rem; }
+
+        .highlight {
+            background: #e7f3ff;
+            border-left: 4px solid #4facfe;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        footer {
+            background: #f8f9fa;
+            padding: 1rem;
+            text-align: center;
+            color: #6c757d;
+            font-size: 0.9rem;
+            border-top: 2px solid #e9ecef;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <header>
+            <h1>Web Programming Project Proposals</h1>
+            <p>Vue.js • Express.js • SQLite • Automation</p>
+        </header>
+
+        <nav>
+            <button onclick="showView('overview')" class="active" id="btn-overview">Overview</button>
+            <button onclick="showView('proposal1')" id="btn-proposal1">Proposal 1</button>
+            <button onclick="showView('proposal2')" id="btn-proposal2">Proposal 2</button>
+        </nav>
+
+        <div class="content">
+            <!-- Overview -->
+            <div id="overview" class="view active">
+                <h2>Project Requirements</h2>
+                
+                <h3>Technical Requirements</h3>
+                <div class="grid">
+                    <div class="card">
+                        <h4>Frontend (Vue.js)</h4>
+                        <ul>
+                            <li>Must use components</li>
+                            <li>Fetch data via own API</li>
+                            <li>At least 3 different views/pages</li>
+                            <li>Form handling with validation</li>
+                            <li>Nice to have: Tailwind, routing, state management</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h4>Backend (Express.js)</h4>
+                        <ul>
+                            <li>Must expose REST API (GET/POST/PUT/DELETE)</li>
+                            <li>Connect to a database (CRUD functionality)</li>
+                            <li>Authentication (login/register)</li>
+                            <li>Error handling & input validation</li>
+                            <li>Nice to have: OAuth / external API integration</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h4>Automation</h4>
+                        <ul>
+                            <li>One automation flow (n8n, make.com, Zapier, …)</li>
+                            <li>Example: notification system, scheduled task, external data sync</li>
+                            <li>Must interact with either your frontend or backend</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>User Side (must-have)</h3>
+                <ul>
+                    <li>Account creation & login</li>
+                    <li>Profile management</li>
+                    <li>Core interaction depending on idea (e.g. booking, ordering, posting)</li>
+                    <li>Overview of user actions (e.g. list of bookings/orders/posts)</li>
+                </ul>
+
+                <h3>Business Side (must-have)</h3>
+                <ul>
+                    <li>Owner/admin dashboard with CRUD functionality</li>
+                    <li>Manage core resources (e.g. spots, products, events)</li>
+                </ul>
+
+                <h3>Optional / Nice-to-have</h3>
+                <ul>
+                    <li>Maps / geolocation</li>
+                    <li>Ratings & reviews</li>
+                    <li>Notifications (email, SMS, in-app)</li>
+                    <li>Password reset flow</li>
+                    <li>Advanced UI styling</li>
+                </ul>
+            </div>
+
+            <!-- Proposal 1 -->
+            <div id="proposal1" class="view">
+                <h2>Proposal 1: Recipe Sharing Platform</h2>
+                <p class="one-liner">A community-driven recipe sharing platform where home cooks can discover, share, and manage recipes with integrated meal planning.</p>
+
+                <h3>Problem & Target Audience</h3>
+                <p>Home cooks struggle to organize recipes scattered across cookbooks, websites, and notes. They need a centralized platform to store, discover, and share recipes while planning meals efficiently. Targets home cooks, food bloggers, and cooking enthusiasts who want to build their recipe collection and engage with a cooking community.</p>
+
+                <h3>Core Features (MVP)</h3>
+                <ul>
+                    <li><strong>Recipe CRUD:</strong> Create, edit, delete recipes with ingredients, instructions, photos, and cooking time</li>
+                    <li><strong>Discovery:</strong> Browse and search by category, ingredients, dietary preferences, or cooking time</li>
+                    <li><strong>User Profiles:</strong> Personal collections, favorites, and activity history</li>
+                    <li><strong>Rating & Reviews:</strong> Rate recipes and leave comments</li>
+                    <li><strong>Meal Planner:</strong> Weekly meal plan calendar</li>
+                    <li><strong>Shopping List:</strong> Auto-generate from selected recipes</li>
+                    <li><strong>Admin Dashboard:</strong> Manage users, moderate recipes, view statistics</li>
+                </ul>
+
+                <h3>Technical Implementation</h3>
+                <div class="grid">
+                    <div class="card">
+                        <h4>Frontend (Vue.js)</h4>
+                        <ul>
+                            <li>Component-based architecture for recipe display and forms</li>
+                            <li>Multiple pages for browsing, meal planning, and user profiles</li>
+                            <li>State management for user authentication and data</li>
+                            <li>Form validation for recipe creation and editing</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h4>Backend (Express.js)</h4>
+                        <ul>
+                            <li>REST API for recipes, users, reviews, and meal plans</li>
+                            <li>SQLite database with tables for core functionality</li>
+                            <li>Authentication system for login and registration</li>
+                            <li>Input validation and error handling</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h4>Automation</h4>
+                        <ul>
+                            <li><strong>Recipe Chatbot:</strong> Suggest recipes based on available ingredients using AI</li>
+                            <li><strong>Weekly Reminders:</strong> Email meal plans to users</li>
+                            <li><strong>Shopping Lists:</strong> Send formatted lists on request</li>
+                            <li><strong>Notifications:</strong> Featured recipe and updates</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h4>Business Model</h4>
+                        <ul>
+                            <li><strong>Revenue:</strong> Freemium (free basic, premium meal planning)</li>
+                            <li><strong>Market:</strong> Home cooks, bloggers, meal preppers</li>
+                            <li><strong>Value:</strong> All-in-one recipe + meal planning solution</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Proposal 2 -->
+            <div id="proposal2" class="view">
+                <h2>Proposal 2: Car Rental Comparison Platform</h2>
+                <p class="one-liner">A car rental platform with side-by-side comparison that lets users compare two vehicles at once and book the perfect car for their trip.</p>
+
+                <h3>Problem & Target Audience</h3>
+                <p>Travelers and business users struggle to compare rental cars across different features like price, mileage, fuel type, and amenities. Traditional rental sites show one car at a time, making comparison difficult. This platform targets frequent travelers, vacation planners, and business professionals who need to make informed decisions quickly by viewing detailed comparisons of two vehicles simultaneously before booking.</p>
+
+                <h3>Core Features (MVP)</h3>
+                <ul>
+                    <li><strong>Side-by-Side Comparison:</strong> View two cars simultaneously with specs, pricing, features, and availability in a card-based layout</li>
+                    <li><strong>Car Browsing:</strong> Search and filter vehicles by type, price range, transmission, fuel type, and passenger capacity</li>
+                    <li><strong>Booking System:</strong> Complete rental flow with pickup/drop-off dates, locations, and driver information</li>
+                    <li><strong>User Profiles:</strong> Manage bookings, view rental history, and save favorite vehicles</li>
+                    <li><strong>Reviews & Ratings:</strong> Rate vehicles and read reviews from other renters</li>
+                    <li><strong>Availability Calendar:</strong> Real-time availability checking for selected dates and locations</li>
+                    <li><strong>Admin Dashboard:</strong> Manage vehicle inventory, bookings, pricing, and customer reviews</li>
+                </ul>
+
+                <h3>Technical Implementation</h3>
+                <div class="grid">
+                    <div class="card">
+                        <h4>Frontend (Vue.js)</h4>
+                        <ul>
+                            <li>Component-based architecture for car displays and comparison</li>
+                            <li>Multiple pages for browsing, booking, and user management</li>
+                            <li>State management for comparison selection and booking data</li>
+                            <li>Form validation for booking and user input</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h4>Backend (Express.js)</h4>
+                        <ul>
+                            <li>REST API for vehicles, bookings, users, and reviews</li>
+                            <li>SQLite database with tables for core functionality</li>
+                            <li>Authentication system for user accounts</li>
+                            <li>Availability checking and price calculation logic</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h4>Automation</h4>
+                        <ul>
+                            <li><strong>Booking Confirmation:</strong> Send confirmation with rental details</li>
+                            <li><strong>Pickup Reminder:</strong> Reminder before pickup time</li>
+                            <li><strong>Return Alert:</strong> Notification before return deadline</li>
+                            <li><strong>Review Request:</strong> Follow-up for feedback after rental</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h4>Business Model</h4>
+                        <ul>
+                            <li><strong>Revenue:</strong> Commission per booking + insurance upsells</li>
+                            <li><strong>Market:</strong> Travelers, business users, vacation planners</li>
+                            <li><strong>Value:</strong> Unique side-by-side comparison for informed decisions</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            Web Programming Project Proposals | Deadline: December 26, 2025<br>
+            <small style="opacity: 0.7; margin-top: 0.5rem; display: block;">I created this website with the help of Claude AI. I provided a basic HTML document, structured all the sections, and gave the theme and ideas, while the inline CSS, JavaScript, and HTML code was written by Claude. I am capable of explaining each line of code in the project and what it does.</small>
+        </footer>
+    </div>
+
+    <script>
+        function showView(viewId) {
+            document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+            document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+            document.getElementById(viewId).classList.add('active');
+            document.getElementById('btn-' + viewId).classList.add('active');
+        }
+
+        document.addEventListener('keydown', function(e) {
+            const views = ['overview', 'proposal1', 'proposal2'];
+            const current = views.indexOf(document.querySelector('.view.active').id);
+            if (e.key === 'ArrowRight' && current < 2) showView(views[current + 1]);
+            if (e.key === 'ArrowLeft' && current > 0) showView(views[current - 1]);
+        });
+    </script>
+</body>
+</html>
