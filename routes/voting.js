@@ -5,12 +5,16 @@ const { PrismaClient } = require('../generated/prisma');
 const prisma = new PrismaClient();
 
 router.post('/', async(req, res) => {
-  // Check if artist with a name is already in the database
-  // similar as SELECT * FROM Artists WHERE name LIKE 'dj ghost'
-  const checkArtist = await prisma.artists.findMany({
-    where: {
-      name: req.body.name
+  const songId = req.body.songId;
+  const points = req.body.points;
+
+  const newVote = await prisma.songs.create({
+    data: {
+      song_id: songId,
+      points: points
     }
-  });
+  })
+  res.json(newVote);
+})
 
 module.exports = router;
