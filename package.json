@@ -3,6 +3,8 @@
     "start": "nodemon index.js"
   },
   "dependencies": {
-    "express": "^5.1.0"
+    "@prisma/client": "^6.17.1",
+    "express": "^5.1.0",
+    "prisma": "^6.17.1"
   }
 }
